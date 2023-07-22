@@ -50,8 +50,10 @@ header {
 /* Navbar Links Styles */
 .nav-links {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
+  width: 50%;
+  height: 100%;
 }
 
 .nav-links ol {
@@ -60,14 +62,17 @@ header {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: center; /* Center the links horizontally */
+  width: 100%; /* Change the width to 100% for smaller screens */
 }
 
 .nav-links li {
-  margin: -2px;
+  margin: 2px; /* Adjust the spacing between the links */
   padding: 0;
+  flex-basis: 50%; /* Set the flex-basis to 50% for smaller screens to make 2 columns */
+  text-align: center; /* Center the text within each column */
 }
+
 
 /* Navbar Styles */
 .navbar {
@@ -121,8 +126,7 @@ header {
   opacity: 0;
   transform: scale(0.6) rotate(0deg);
   transition: transform 0.3s ease-in, opacity 0.2s ease-in 0.1s;
-  
-/*  white transparent for Safari  */
+  /* white transparent for Safari */
   background: radial-gradient(circle, rgba(0, 0, 0, 0) 50%, #f0f0f0 50%);
 }
 
@@ -135,14 +139,13 @@ header {
   background: radial-gradient(circle, #f0f0f0 30%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 50%, #f0f0f0 50%);
   transform: rotate(45deg);
 }
-
 .sun.visible {
   pointer-events: auto;
   opacity: 1;
   transform: scale(1) rotate(180deg);
   transition: transform 0.3s ease-in, opacity 0.2s ease-in 0.1s;
 }
-    
+
 .moon {
   width: 50%;
   height: 50%;
@@ -175,7 +178,7 @@ header {
   border-right: 7px solid rgba(0, 0, 0, 0);
   border-bottom: 5px solid #f0f0f0;
   border-left: 7px solid rgba(0, 0, 0, 0);
-  transform: scale(0.55) rotate(35deg);  
+  transform: scale(0.55) rotate(35deg);
   opacity: 0;
   transition: all 0.2s ease-in 0.4s;
 }
@@ -210,8 +213,7 @@ header {
 }
 
 .moon.visible .star {
-  opacity: .8;
-/*   transform: rotate(35deg); */
+  opacity: 0.8;
 }
 
 .star.small {
@@ -224,8 +226,52 @@ header {
 }
 
 .moon.visible .star.small {
-  opacity: .7;
+  opacity: 0.7;
   transform: scale(0.45) rotate(35deg);
+}
+
+@media screen and (max-width: 768px) {
+  /* Navbar Links Styles for Low Width */
+  .nav-links {
+    display: none;
+    flex-wrap: wrap;
+    list-style: none; /* Remove default bullets */
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links li {
+    margin: 2px;
+    font-size: 12px;
+    margin-bottom: 10px;
+    list-style: none; /* Show the list items as a horizontal list */
+    padding: 0 1rem; /* Add some spacing between the links */
+  }
+
+  .nav-links a {
+    color: #000000; /* Black text color */
+    background-color: #f0f0f0; /* Light gray background color */
+    margin: 2px;
+    padding: 8px 16px;
+  }
+
+  .nav-links a:hover {
+    color: #ff4500; /* Orange text color on hover */
+    background-color: #fff; /* White background color on hover */
+  }
+
+  .navbar-content {
+    flex-direction: column;
+  }
+
+  .brand-logo {
+    margin-bottom: 10px;
+  }
+
+  .dark-mode-toggle {
+    top: 10px;
+    right: 10px;
+  }
 }
 /* CTA Button Styles */
 .cta-btn {
@@ -419,20 +465,15 @@ footer {
 
 
 
-  div.nav-links ol {
-    display: flex;
-    justify-content: center; /* Center the links horizontally */
-    align-items: center; /* Center the links vertically */
+  .nav-links {
+    flex-direction: column;
   }
 
-  div.nav-links li {
-    margin: 2px;
-    font-size: 12px;
-    margin-bottom: 10px;
-    list-style: none; /* Show the list items as a horizontal list */
-    padding: 0 1rem; /* Add some spacing between the links */
+  .nav-links li {
+    flex-basis: auto; /* Reset flex-basis to its default value to allow natural width */
+    margin-bottom: 10px; /* Add some spacing between the links in the column layout */
+    text-align: center; /* Center the text within each column */
   }
-
   .dark-mode-dark-mode-toggle {
     top: 10px;
     right: 10px;
